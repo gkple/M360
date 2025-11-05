@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método 360 Financeiro</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="icon" type="image/png" href="imagens/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&amp;family=Poppins:wght@500;600&amp;family=Open+Sans:wght@400&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 1.2rem 5%;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #143e6b;
+    }
+
+    .logo-image {
+      height: 40px;
+      width: auto;
+      max-width: 250px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #143e6b;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #136F63;
+    }
+
+    .btn-area {
+      background: #143e6b;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.3s;
+    }
+
+    .btn-area:hover {
+      background: #136F63;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #143e6b 0%, #136F63 100%);
+      color: white;
+      padding: 10rem 5% 6rem;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 3.5rem;
+      margin: 0 0 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin: 0 0 3rem;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #136F63;
+      color: white;
+      padding: 1.2rem 3rem;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(19, 111, 99, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #143e6b;
+      padding: 1.2rem 3rem;
+      border: 2px solid white;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.3s, color 0.3s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: transparent;
+      color: white;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 6rem 5%;
+    }
+
+    .section-white {
+      background: #F5F7FA;
+    }
+
+    .section-gray {
+      background: white;
+    }
+
+    .section-dark {
+      background: #143e6b;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 3.5rem;
+      margin: 0 0 3rem;
+      text-align: center;
+      line-height: 1.3;
+      color: #143e6b;
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-logo {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 2rem auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #1E1E1E;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+      margin: 0 0 1rem;
+      color: #136F63;
+      line-height: 1.5;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #1E1E1E;
+      margin: 0;
+    }
+
+    /* Target Audience */
+    .target-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .target-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: #F5F7FA;
+      border-radius: 8px;
+    }
+
+    .check-icon {
+      color: #136F63;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .target-item p {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #1E1E1E;
+      line-height: 1.5;
+    }
+
+    /* Why It Works */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .why-card {
+      text-align: center;
+    }
+
+    .why-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #136F63;
+    }
+
+    .why-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      margin: 0 0 1rem;
+      line-height: 1.5;
+    }
+
+    .why-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    /* Creator Section */
+    .creator-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .creator-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #143e6b, #136F63);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .creator-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .creator-text h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      color: #136F63;
+      margin: 0 0 1rem;
+      line-height: 1.5;
+    }
+
+    .creator-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #1E1E1E;
+      margin: 0;
+    }
+
+    /* Final CTA Section */
+    .section-cta {
+      background: #136F63;
+      color: white;
+      padding: 6rem 5%;
+    }
+
+    .cta-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin: 0 0 3rem;
+      line-height: 1.3;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary {
+      background: white;
+      color: #143e6b;
+      padding: 1.2rem 3rem;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 220px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+    }
+
+    .btn-cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-cta-secondary {
+      background: #143e6b;
+      color: white;
+      padding: 1.2rem 3rem;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 220px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+    }
+
+    .btn-cta-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(20, 62, 107, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      background: #0F4C81;
+      color: white;
+      padding: 3rem 5% 2rem;
+    }
+
+    .footer-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-copyright,
+    .footer-contact,
+    .footer-version {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.75rem;
+      margin: 0.5rem 0;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    .footer-links span {
+      margin: 0 1rem;
+      opacity: 0.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero {
+        padding: 8rem 5% 4rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .creator-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-content h2 {
+        font-size: 1.8rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-cta-primary,
+      .btn-cta-secondary {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header>
+   <div class="header-content"><img src="https://raw.githubusercontent.com/gkple/M360/refs/heads/main/imagens/Logotipo%20-%20kiwify.png" alt="Método 360 Financeiro" class="logo-image" id="logo-image" onerror="this.style.display='none'; document.getElementById('logo-text-fallback').style.display='block';">
+    <div class="logo" id="logo-text-fallback" style="display: none;">
+     Método 360 Financeiro
+    </div>
+    <nav><a href="#sobre">Sobre</a> <a href="#planilha">Planilha</a> <a href="#metodo">Método</a> <a href="#contato">Contato</a> <a href="https://members.kiwify.com/?club=263e35ac-793d-436e-abeb-f33aca2877f6" class="btn-area" id="area-button" target="_blank" rel="noopener noreferrer">Área 360</a>
+    </nav>
+   </div>
+  </header><!-- Hero Section -->
+  <section class="hero">
+   <div class="hero-content">
+    <h1 id="hero-title">Domine suas finanças com um método simples, completo e real.</h1>
+    <p id="hero-subtitle">O Método 360 Financeiro transforma planilhas em resultados reais, com uma abordagem prática, acessível e eficaz para o dia a dia.</p>
+    <div class="hero-buttons"><a href="#metodo" class="btn-primary">Conheça o Método</a> <a href="https://members.kiwify.com/?club=263e35ac-793d-436e-abeb-f33aca2877f6" class="btn-secondary" target="_blank" rel="noopener noreferrer">Área 360</a>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section class="section-white" id="sobre">
+   <div class="container">
+    <div class="about-content"><img src="https://github.com/gkple/M360/blob/main/imagens/M%C3%A9todo%20360%20financeiro%20-%20Fundo%20Transparente.png?raw=true" alt="Método 360 Financeiro Logo" class="about-logo" onerror="this.style.display='none'; document.querySelector('.about-icon-fallback').style.display='block';">
+     <div class="about-icon about-icon-fallback" style="display: none;">
+      📊
+     </div>
+     <h2 id="about-title">O que é o Método 360 Financeiro</h2>
+     <p id="about-text">O Método 360 é um sistema de gestão financeira completo, criado para quem busca entender, planejar e dominar suas finanças sem depender de ninguém. A partir de um diagnóstico detalhado e de ferramentas inteligentes, você aprende a controlar gastos, definir metas e tomar decisões com segurança.</p>
+    </div>
+   </div>
+  </section><!-- Features Section -->
+  <section class="section-gray" id="planilha">
+   <div class="container">
+    <h2>Tudo o que você precisa em um só método.</h2>
+    <div class="features-grid">
+     <div class="feature-card">
+      <div class="feature-icon">
+       📊
+      </div>
+      <h3>Diagnóstico Financeiro</h3>
+      <p>Descubra sua nota e pontos de melhoria com análise completa da sua situação atual.</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-icon">
+       💡
+      </div>
+      <h3>Controle 360</h3>
+      <p>Planilha completa com todos os módulos integrados para gestão total.</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-icon">
+       🎓
+      </div>
+      <h3>Aulas Práticas</h3>
+      <p>Vídeos objetivos e aplicáveis para você dominar cada ferramenta.</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-icon">
+       🔁
+      </div>
+      <h3>Atualizações Anuais</h3>
+      <p>Versão nova gratuita todo ano com melhorias e novos recursos.</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-icon">
+       💬
+      </div>
+      <h3>Suporte Direto</h3>
+      <p>Atendimento por e-mail e dentro da plataforma sempre que precisar.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Target Audience Section -->
+  <section class="section-white">
+   <div class="container">
+    <h2>Feito para quem quer assumir o controle de vez.</h2>
+    <div class="target-list">
+     <div class="target-item">
+      <div class="check-icon">
+       ✓
+      </div>
+      <p>Quem quer sair do descontrole financeiro.</p>
+     </div>
+     <div class="target-item">
+      <div class="check-icon">
+       ✓
+      </div>
+      <p>Autônomos e empreendedores que misturam finanças pessoais e do negócio.</p>
+     </div>
+     <div class="target-item">
+      <div class="check-icon">
+       ✓
+      </div>
+      <p>Quem já tentou planilhas prontas e nunca conseguiu manter.</p>
+     </div>
+     <div class="target-item">
+      <div class="check-icon">
+       ✓
+      </div>
+      <p>Famílias que querem organizar o orçamento conjunto.</p>
+     </div>
+     <div class="target-item">
+      <div class="check-icon">
+       ✓
+      </div>
+      <p>Pequenas empresas que precisam de clareza e planejamento.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Why It Works Section -->
+  <section class="section-dark" id="metodo">
+   <div class="container">
+    <h2>Por que o Método 360 funciona.</h2>
+    <div class="why-grid">
+     <div class="why-card">
+      <div class="why-icon">
+       ⚡
+      </div>
+      <h3>Método Prático</h3>
+      <p>Direto e aplicável desde o primeiro dia, sem complicações desnecessárias.</p>
+     </div>
+     <div class="why-card">
+      <div class="why-icon">
+       🎯
+      </div>
+      <h3>Visão Completa</h3>
+      <p>Pessoal e empresarial em um só sistema integrado e eficiente.</p>
+     </div>
+     <div class="why-card">
+      <div class="why-icon">
+       📈
+      </div>
+      <h3>Evolução Contínua</h3>
+      <p>Você mede, ajusta e melhora mês a mês com acompanhamento real.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Creator Section -->
+  <section class="section-white" id="contato">
+   <div class="container">
+    <h2 id="creator-title">Quem está por trás do Método 360.</h2>
+    <div class="creator-content">
+     <div class="creator-photo">
+      👤
+     </div>
+     <div class="creator-text">
+      <h3 id="creator-name">Gabriel Arantes</h3>
+      <p id="creator-bio">O Método 360 foi criado por Gabriel Arantes, gestor financeiro e estrategista de processos, com experiência em controle orçamentário, gestão de empresas e educação financeira. A proposta nasceu da necessidade de transformar planilhas complexas em uma metodologia simples e eficaz.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Final CTA Section -->
+  <section class="section-cta">
+   <div class="container">
+    <div class="cta-content">
+     <h2 id="cta-title">Controle, clareza e tranquilidade financeira começam aqui.</h2>
+     <div class="cta-buttons"><a href="#metodo" class="btn-cta-primary">Conheça o Método</a> <a href="https://members.kiwify.com/?club=263e35ac-793d-436e-abeb-f33aca2877f6" class="btn-cta-secondary" target="_blank" rel="noopener noreferrer">Área 360</a>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <p class="footer-copyright">© Método 360 Financeiro — Todos os direitos reservados</p>
+     <p class="footer-contact">m360financeiro@gmail.com</p>
+     <p class="footer-version">Versão atual: 1.1.7/2025</p>
+     <div class="footer-links"><a href="#" target="_blank" rel="noopener noreferrer">Política de Privacidade</a> <span>|</span> <a href="#" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script>
+    const defaultConfig = {
+      background_color: "#143e6b",
+      surface_color: "#F5F7FA",
+      text_color: "#1E1E1E",
+      primary_action_color: "#136F63",
+      secondary_action_color: "#A8A8A8",
+      font_family: "Open Sans",
+      font_size: 16,
+      logo_text: "Método 360 Financeiro",
+      area_button_text: "Área 360",
+      hero_title: "Domine suas finanças com um método simples, completo e real.",
+      hero_subtitle: "O Método 360 Financeiro transforma planilhas em resultados reais, com uma abordagem prática, acessível e eficaz para o dia a dia.",
+      about_title: "O que é o Método 360 Financeiro",
+      about_text: "O Método 360 é um sistema de gestão financeira completo, criado para quem busca entender, planejar e dominar suas finanças sem depender de ninguém. A partir de um diagnóstico detalhado e de ferramentas inteligentes, você aprende a controlar gastos, definir metas e tomar decisões com segurança.",
+      creator_title: "Quem está por trás do Método 360.",
+      creator_name: "Gabriel Arantes",
+      creator_bio: "O Método 360 foi criado por Gabriel Arantes, gestor financeiro e estrategista de processos, com experiência em controle orçamentário, gestão de empresas e educação financeira. A proposta nasceu da necessidade de transformar planilhas complexas em uma metodologia simples e eficaz.",
+      cta_title: "Controle, clareza e tranquilidade financeira começam aqui."
+    };
+
+    async function onConfigChange(config) {
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+      const baseFontStack = 'Arial, sans-serif';
+      const headingFontStack = 'Montserrat, sans-serif';
+      const buttonFontStack = 'Poppins, sans-serif';
+
+      // Apply background color
+      document.querySelector('.hero').style.background = `linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.secondary_action_color || defaultConfig.secondary_action_color} 100%)`;
+      document.querySelector('.section-dark').style.background = config.background_color || defaultConfig.background_color;
+
+      // Apply surface color
+      const grayElements = document.querySelectorAll('.section-gray, .target-item');
+      grayElements.forEach(el => {
+        el.style.background = config.surface_color || defaultConfig.surface_color;
+      });
+
+      // Apply text color
+      document.body.style.color = config.text_color || defaultConfig.text_color;
+      const textElements = document.querySelectorAll('.about-content p, .feature-card p, .target-item p, .creator-text p');
+      textElements.forEach(el => {
+        el.style.color = config.text_color || defaultConfig.text_color;
+      });
+
+      // Apply primary action color
+      const primaryButtons = document.querySelectorAll('.btn-primary');
+      primaryButtons.forEach(btn => {
+        btn.style.background = config.primary_action_color || defaultConfig.primary_action_color;
+      });
+      const whyIcons = document.querySelectorAll('.why-icon');
+      whyIcons.forEach(icon => {
+        icon.style.color = config.primary_action_color || defaultConfig.primary_action_color;
+      });
+
+      // Apply secondary action color
+      const areaButtons = document.querySelectorAll('.btn-area');
+      areaButtons.forEach(btn => {
+        btn.style.background = config.background_color || defaultConfig.background_color;
+      });
+
+      // Apply CTA section background
+      document.querySelector('.section-cta').style.background = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+      // Apply fonts
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      const headings = document.querySelectorAll('h1, h2');
+      headings.forEach(h => {
+        h.style.fontFamily = `${customFont}, ${headingFontStack}`;
+      });
+
+      const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-area, .btn-cta-primary, .btn-cta-secondary, nav a');
+      buttons.forEach(btn => {
+        btn.style.fontFamily = `${customFont}, ${buttonFontStack}`;
+      });
+
+      // Apply font sizes
+      document.body.style.fontSize = `${baseSize}px`;
+      document.querySelector('.hero h1').style.fontSize = `${baseSize * 2.2}px`;
+      document.querySelectorAll('h2').forEach(h => h.style.fontSize = `${baseSize * 1.75}px`);
+      document.querySelector('.hero p').style.fontSize = `${baseSize * 1.1}px`;
+      document.querySelectorAll('.about-content p, .why-card p, .creator-text p').forEach(p => {
+        p.style.fontSize = `${baseSize * 1.1}px`;
+      });
+      document.querySelectorAll('.feature-card p, .target-item p').forEach(p => {
+        p.style.fontSize = `${baseSize}px`;
+      });
+      document.querySelectorAll('.footer-copyright, .footer-contact, .footer-version, .footer-links').forEach(p => {
+        p.style.fontSize = `${baseSize * 0.75}px`;
+      });
+
+      // Update text content
+      document.getElementById('logo-text').textContent = config.logo_text || defaultConfig.logo_text;
+      document.getElementById('area-button').textContent = config.area_button_text || defaultConfig.area_button_text;
+      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+      document.getElementById('creator-title').textContent = config.creator_title || defaultConfig.creator_title;
+      document.getElementById('creator-name').textContent = config.creator_name || defaultConfig.creator_name;
+      document.getElementById('creator-bio').textContent = config.creator_bio || defaultConfig.creator_bio;
+      document.getElementById('cta-title').textContent = config.cta_title || defaultConfig.cta_title;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["logo_text", config.logo_text || defaultConfig.logo_text],
+        ["area_button_text", config.area_button_text || defaultConfig.area_button_text],
+        ["hero_title", config.hero_title || defaultConfig.hero_title],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["creator_title", config.creator_title || defaultConfig.creator_title],
+        ["creator_name", config.creator_name || defaultConfig.creator_name],
+        ["creator_bio", config.creator_bio || defaultConfig.creator_bio],
+        ["cta_title", config.cta_title || defaultConfig.cta_title]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'999ef457e5aae29d',t:'MTc2MjM3MzAwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
