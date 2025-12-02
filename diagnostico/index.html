@@ -52,7 +52,8 @@ src="https://www.facebook.com/tr?id=840522965091010&ev=PageView&noscript=1"
       position: relative;
       overflow: hidden;
     }
-.cta-group{
+	
+	.cta-group{
   display:flex;
   justify-content:center;
   align-items:center;
@@ -88,7 +89,124 @@ src="https://www.facebook.com/tr?id=840522965091010&ev=PageView&noscript=1"
   .hero-logo{ max-width: 420px; }
 }
 
+.price-banner{
+  background:#FFFFFF;
+  padding:72px 20px 40px;
+}
 
+.price-banner-inner{
+  max-width:960px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
+  gap:32px;
+  align-items:center;
+}
+
+.price-banner-copy h2{
+  font-size:30px;
+  font-family:'Montserrat',sans-serif;
+  color:#1A3B5D;
+  margin:0 0 12px;
+}
+
+.price-banner-copy p{
+  font-size:15px;
+  color:#2A5A7D;
+  line-height:1.7;
+  margin:0 0 8px;
+}
+
+.price-banner-note{
+  font-size:14px;
+  opacity:.9;
+}
+
+.price-banner-image img{
+  max-width:340px;
+  width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  filter:drop-shadow(0 6px 18px rgba(26,59,93,.18));
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .price-banner{
+    padding:40px 16px 24px;
+  }
+  .price-banner-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .price-banner-copy h2{
+    font-size:24px;
+  }
+  .price-banner-copy p{
+    font-size:14px;
+  }
+  .price-banner-image img{
+    max-width:280px;
+  }
+}
+
+/* === Guarantee Section (selos menores + proporcionais) === */
+
+.guarantee-section{
+  background:#F7FAFC;
+  padding:70px 20px;
+  text-align:center;
+}
+
+.guarantee-section h2{
+  font-size:30px;
+  font-family:'Montserrat',sans-serif;
+  color:#1A3B5D;
+  margin:0 0 20px;
+}
+
+.guarantee-text{
+  max-width:720px;
+  margin:0 auto 18px;
+  color:#2A5A7D;
+  font-size:16px;
+  line-height:1.6;
+}
+
+.guarantee-sub{
+  font-size:14px;
+  color:#5A6B7A;
+  opacity:.9;
+  margin-bottom:28px;
+}
+
+/* SELos ajustados */
+.guarantee-badges{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:26px;
+  margin-top:20px;
+}
+
+.guarantee-badges img{
+  width:130px;    /* ↓ tamanho reduzido (antes estava gigantesco) */
+  height:auto;
+  filter:drop-shadow(0 6px 16px rgba(26,59,93,.15));
+  transition:transform .25s ease;
+}
+
+.guarantee-badges img:hover{
+  transform:scale(1.05);
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .guarantee-badges img{
+    width:110px;  /* ainda menor no celular */
+  }
+}
 
 
     .logo {
@@ -639,7 +757,8 @@ src="https://www.facebook.com/tr?id=840522965091010&ev=PageView&noscript=1"
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
 
   
-  <meta name="description" content="Descubra em minutos o que trava suas finanças. O Diagnóstico Financeiro 360 entrega seu índice financeiro e mostra o próximo passo com clareza.">
+  <meta name="description" content="Existe um erro escondido drenando seu dinheiro. O Diagnóstico Financeiro 360 mostra onde seu dinheiro está escapando sem você perceber e qual ajuste fazer para recuperar o controle.">
+
 <link rel="canonical" href="https://m360financeiro.com.br/diagnostico360">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -647,14 +766,14 @@ src="https://www.facebook.com/tr?id=840522965091010&ev=PageView&noscript=1"
 <!-- Open Graph -->
 <meta property="og:type" content="product">
 <meta property="og:title" content="Diagnóstico Financeiro 360">
-<meta property="og:description" content="Seu Raio-X financeiro em menos de 10 minutos.">
+<meta property="og:description" content="Existe um erro escondido drenando seu dinheiro. Descubra em minutos onde ele está e o que fazer para corrigir.">
 <meta property="og:image" content="https://m360financeiro.com.br/assets/diagnostico-og.jpg">
 <meta property="og:url" content="https://m360financeiro.com.br/diagnostico360">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Diagnóstico Financeiro 360">
-<meta name="twitter:description" content="Seu Raio-X financeiro em menos de 10 minutos.">
+<meta name="twitter:description" content="Existe um erro escondido drenando seu dinheiro. Descubra em minutos onde ele está e o que fazer para corrigir.">
 <meta name="twitter:image" content="https://m360financeiro.com.br/assets/diagnostico-og.jpg">
 
 
@@ -898,6 +1017,90 @@ document.addEventListener('DOMContentLoaded', () => {
   --mx:50%; --my:50%;
 }
 .benefits-grid:hover .benefit-card{ /* ativa a var custom por célula via JS leve abaixo */ }
+
+/* Testimonials Section */
+.testimonials {
+  background: #F7FAFC;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+  color: #1A3B5D;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.testimonials-sub {
+  font-size: 18px;
+  color: #2A5A7D;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  opacity: 0.85;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(26,59,93,.08);
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.img-card img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+.testimonial-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #1A3B5D;
+  font-weight: 400;
+}
+
+.testimonial-card .author {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #2A5A7D;
+  font-weight: 600;
+}
+
+/* Mobile adjust */
+@media (max-width: 768px) {
+  .testimonials h2 { font-size: 30px; }
+  .testimonials-sub { font-size: 16px; }
+}
+
+@media (max-width: 768px){
+  .img-card {
+    padding: 0;
+  }
+  .img-card img {
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(26,59,93,.15);
+  }
+}
+
 </style>
 
  
@@ -905,8 +1108,15 @@ document.addEventListener('DOMContentLoaded', () => {
  <body><!-- Hero Section -->
   <section class="hero"><img src="Imagens/DIAGNÓSTICO fundo transparente.png" alt="Diagnóstico 360" class="hero-logo" fetchpriority="high">
 
-   <h1 id="hero-title">Descubra em minutos o que está travando suas finanças.</h1>
-   <p id="hero-subtitle">Um diagnóstico rápido, prático e preciso — e o primeiro passo para o verdadeiro controle financeiro.</p>
+   <h1 id="hero-title">Existe um erro escondido drenando seu dinheiro. Descubra qual é em menos de 10 minutos.</h1>
+
+<p id="hero-subtitle">
+O Diagnóstico 360 revela onde seu dinheiro está escapando sem você perceber — e mostra o ajuste exato que você precisa fazer para recuperar o controle.
+</p>
+<p style="font-size:18px; margin-top:-10px; opacity:0.9;">
+Você vai se surpreender com o que está realmente travando suas finanças.
+</p>
+
    
    <div class="cta-group">
   <button class="cta-button" id="cta-hero" aria-label="Comprar Diagnóstico Financeiro 360 por R$ 29,90">
@@ -915,13 +1125,25 @@ document.addEventListener('DOMContentLoaded', () => {
   <button class="secondary-button">Ver como funciona</button>
 </div>
 
+ 
+   <p style="margin-top:12px;font-size:14px;opacity:.85">
+    Acesso imediato • Funciona em Excel e Google Sheets
+  </p>
 
-  <p style="margin-top:12px;font-size:14px;opacity:.85">
+  <p style="
+    margin-top:6px;
+    font-size:16px;
+    opacity:.95;
+  ">
+    <span style="text-decoration:line-through;opacity:.7;margin-right:6px;">
+      De R$ 147,00
+    </span>
+    <strong>por R$ 29,90 no lançamento</strong>
+  </p>
 
-  Acesso imediato • Funciona em Excel e Google Sheets
-</p>
-<div style="height:28px;background:linear-gradient(to bottom,#1A3B5D 0%,#2A5A7D 100%);
-clip-path:ellipse(75% 100% at 50% 0%);opacity:.75;margin-top:-8px;"></div>
+  <div style="height:28px;background:linear-gradient(to bottom,#1A3B5D 0%,#2A5A7D 100%);
+  clip-path:ellipse(75% 100% at 50% 0%);opacity:.75;margin-top:-8px;"></div>
+
 
 
    
@@ -1084,7 +1306,43 @@ clip-path:ellipse(75% 100% at 50% 0%);opacity:.75;margin-top:-8px;"></div>
     </div>
    </div>
    <p class="tagline">Em menos de 1 hora você vai entender o que anos de tentativa não mostraram.</p>
-  </section><!-- Why It Works Section -->
+  </section><!-- Why It Works Section --> 
+   
+   
+   
+   <section style="background:#FFFFFF;padding:80px 20px;text-align:center">
+  <h2 style="font-size:32px;font-family:'Montserrat',sans-serif;color:#1A3B5D;margin:0 0 32px">
+    Para quem é o Diagnóstico 360 — e para quem não é.
+  </h2>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:900px;margin:0 auto;text-align:left">
+    <div style="background:#F7FAFC;border-radius:16px;padding:24px 20px">
+      <h3 style="margin:0 0 12px;color:#1A3B5D;font-size:18px">É para você se...</h3>
+      <ul style="margin:0;padding-left:18px;color:#2A5A7D;font-size:14px;line-height:1.7">
+        <li>Você sente que o dinheiro entra e some e não sabe exatamente onde.</li>
+        <li>Já tentou planilhas ou apps, mas nunca conseguiu manter por falta de clareza.</li>
+        <li>Quer um diagnóstico rápido antes de partir para um controle diário.</li>
+        <li>Tem família, empresa ou renda variável e precisa enxergar o quadro geral.</li>
+      </ul>
+    </div>
+
+    <div style="background:#FFF3F2;border-radius:16px;padding:24px 20px">
+      <h3 style="margin:0 0 12px;color:#B03A2E;font-size:18px">Não é para você se...</h3>
+      <ul style="margin:0;padding-left:18px;color:#7B241C;font-size:14px;line-height:1.7">
+        <li>Você quer “ficar rico do dia para a noite” sem esforço.</li>
+        <li>Não está disposto a reservar nem 30 minutos para olhar seus números.</li>
+        <li>Procura uma promessa milagrosa, e não um raio-x objetivo da sua situação.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+   
+   
+   
+   
+   
+  
   <section class="why-works">
    <h2>Porque o problema não é o dinheiro — é o fluxo.</h2>
    <p class="why-works-text">O Diagnóstico 360 mostra, de forma visual e objetiva, o que está fora do equilíbrio. Ele não promete milagres — entrega clareza e método, os dois elementos que faltam para quem tenta controlar as finanças sem resultado.</p>
@@ -1155,12 +1413,92 @@ clip-path:ellipse(75% 100% at 50% 0%);opacity:.75;margin-top:-8px;"></div>
 </section>
 
 
-  <section class="final-offer">
-   <h2 id="offer-title">Invista R$ 29,90 para entender o que está te impedindo de crescer financeiramente.</h2>
-   <p id="offer-subtitle">Um único diagnóstico pode mudar sua relação com o dinheiro — e esse é o primeiro passo.</p><button class="final-cta" id="cta-final">Fazer meu Diagnóstico agora</button>
-   
 
-  </section><!-- Footer Section -->
+
+<section class="guarantee-section">
+  <h2>Garantia Olhos Abertos por 7 dias</h2>
+
+  <p class="guarantee-text">
+    Se em até 7 dias você sentir que o Diagnóstico 360 não te mostrou pelo menos 
+    <strong>3 ajustes claros</strong> para melhorar suas finanças, devolvo 100% do valor.
+  </p>
+
+  <p class="guarantee-sub">
+    Você entra, testa, vê seu Índice 360 e decide com tranquilidade.
+  </p>
+
+  <div class="guarantee-badges">
+    <img src="Imagens/7dias.png" alt="Garantia de 7 dias">
+    <img src="Imagens/100.png" alt="Compra 100% segura">
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Oferta de lançamento -->
+<section class="price-banner">
+  <div class="price-banner-inner">
+    <div class="price-banner-copy">
+      <h2>Oferta de lançamento limitada</h2>
+      <p>
+        O valor oficial do Diagnóstico 360 é de 
+        <strong>R$ 147,00</strong>, mas durante o lançamento
+        você garante acesso completo por apenas
+        <strong>R$ 29,90</strong>.
+      </p>
+      <p class="price-banner-note">
+        Depois, o valor volta ao normal — essa condição é para quem entra agora.
+      </p>
+    </div>
+
+    <div class="price-banner-image">
+      <img src="Imagens/DEpor.png"
+           alt="De R$ 147,00 por R$ 29,90"
+           loading="lazy">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <section class="final-offer">
+  <p style="
+    display:inline-block;
+    background:rgba(39,174,96,.16);
+    border:1px solid rgba(39,174,96,.6);
+    color:#EAFBF0;
+    padding:8px 18px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.02em;
+    margin:0 0 20px 0;
+  ">
+    De <span style="text-decoration:line-through;opacity:.8;">R$ 147,00</span>
+    por <strong>R$ 29,90</strong>
+  </p>
+
+  <h2 id="offer-title">
+    Invista R$ 29,90 para entender o que está te impedindo de crescer financeiramente.
+  </h2>
+
+  <p id="offer-subtitle">
+    Um único diagnóstico pode mudar sua relação com o dinheiro — e esse é o primeiro passo.
+  </p>
+
+  <button class="final-cta" id="cta-final">
+    Fazer meu Diagnóstico agora
+  </button>
+</section>
+
+  
+  
   <section style="background:#fff;padding:64px 20px;text-align:center">
   <h2 style="color:#1A3B5D;font-family:Montserrat,sans-serif;margin:0 0 24px">Veja por dentro</h2>
   <p style="color:#2A5A7D;max-width:760px;margin:0 auto 32px">
@@ -1177,6 +1515,150 @@ clip-path:ellipse(75% 100% at 50% 0%);opacity:.75;margin-top:-8px;"></div>
 </section>
 
 
+<section style="background:#EFF3F8;padding:70px 20px;text-align:left">
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:center">
+    <div>
+      <h2 style="font-size:30px;font-family:'Montserrat',sans-serif;color:#1A3B5D;margin:0 0 16px">
+        Por que eu criei o Diagnóstico 360
+      </h2>
+      <p style="color:#2A5A7D;font-size:15px;line-height:1.7;margin:0 0 10px">
+        Eu trabalho há anos com controle financeiro e percebi um padrão:
+        a maioria das pessoas não tem problema de “falta de dinheiro”, e sim de falta de visão.
+      </p>
+      <p style="color:#2A5A7D;font-size:15px;line-height:1.7;margin:0 0 10px">
+        Criei o Diagnóstico 360 primeiro para organizar minha própria vida e a da minha família. 
+        Depois, comecei a aplicar em amigos e clientes e vi sempre o mesmo efeito:
+        <strong>as pessoas saíam chocadas com o quanto estavam deixando escapar todo mês.</strong>
+      </p>
+      <p style="color:#2A5A7D;font-size:15px;line-height:1.7;margin:0">
+        Esta ferramenta é a versão enxuta e prática desse processo, para qualquer pessoa conseguir
+        seu raio-x financeiro em menos de 1 hora.
+      </p>
+    </div>
+  <div style="text-align:center">
+  <div style="
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    margin:0 auto 12px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(26,59,93,.25);
+  ">
+    <img src="Imagens/gabriel.png"
+         alt="Gabriel Arantes — Fundador do Método 360 Financeiro"
+         loading="lazy"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+  <p style="margin:0;color:#1A3B5D;font-weight:600">Gabriel Arantes</p>
+  <p style="margin:2px 0 0;color:#2A5A7D;font-size:14px">Fundador do Método 360 Financeiro</p>
+</div>
+
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>O que as pessoas dizem depois de fazer o Diagnóstico 360</h2>
+  <p class="testimonials-sub">Resultados reais de pessoas reais que finalmente entenderam o que travava suas finanças.</p>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card img-card">
+  <img loading="lazy" src="Imagens/depo1.png"
+       alt="Depoimento no WhatsApp de Pedro sobre o Diagnóstico 360">
+</div>
+
+<div class="testimonial-card img-card">
+  <img loading="lazy" src="Imagens/depo2.png"
+       alt="Depoimento no WhatsApp de Jussara sobre o Diagnóstico 360">
+</div>
+
+<div class="testimonial-card img-card">
+  <img loading="lazy" src="Imagens/depo3.png"
+       alt="Depoimento no WhatsApp de Marcelle sobre o Diagnóstico 360">
+</div>
+
+<div class="testimonial-card img-card">
+  <img loading="lazy" src="Imagens/depo4.png"
+       alt="Depoimento no WhatsApp de Luiz Carlos sobre o Diagnóstico 360">
+</div>
+
+<div class="testimonial-card img-card">
+  <img loading="lazy" src="Imagens/depo5.png"
+       alt="Depoimento no WhatsApp de Cláudia sobre o Diagnóstico 360">
+</div>
+
+<div class="testimonial-card img-card">
+  <img loading="lazy" src="Imagens/depo6.png"
+       alt="Depoimento no WhatsApp de Ronaldo sobre o Diagnóstico 360">
+</div>
+<!-- Texto 1 -->
+    <div class="testimonial-card">
+      <p>“Eu sempre achava que gastava pouco… quando vi meu Índice 360 entendi exatamente onde estava o buraco. Só por isso já valeu o investimento.”</p>
+      <span class="author">— Juliana M.</span>
+    </div>
+
+    <!-- Texto 2 -->
+    <div class="testimonial-card">
+      <p>“Preenchi em menos de 15 minutos. Nunca uma planilha me deu tanta clareza. Já comecei a aplicar os ajustes que apareceram.”</p>
+      <span class="author">— Ricardo A.</span>
+    </div>
+
+    <!-- Texto 3 -->
+    <div class="testimonial-card">
+      <p>“Eu vivia perdida com meus números. O diagnóstico mostrou exatamente o que fazer. É como se tivesse tirado um peso da minha cabeça.”</p>
+      <span class="author">— Camila S.</span>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CTA Pós-Depoimentos -->
+<section class="cta-after-testimonials" style="
+  background: #1A3B5D;
+  padding: 70px 20px;
+  text-align:center;
+  color:white;
+">
+
+  <h2 style="
+    font-size:36px;
+    font-family: 'Montserrat', sans-serif;
+    margin:0 0 20px 0;
+  ">
+    Pronto para descobrir o que está travando suas finanças?
+  </h2>
+
+  <p style="
+    font-size:18px;
+    opacity:0.9;
+    max-width:720px;
+    margin:0 auto 35px;
+  ">
+    Faça agora seu Diagnóstico 360 e veja, com clareza, onde seu dinheiro está escapando — 
+    e qual ajuste preciso você precisa fazer.
+  </p>
+
+  <button onclick="window.open('https://pay.kiwify.com.br/Jc7SmIN?utm_source=site&utm_medium=cta_depo&utm_campaign=diagnostico360','_blank','noopener,noreferrer')"
+    style="
+      background:#27AE60;
+      color:white;
+      padding:20px 48px;
+      border:none;
+      border-radius:50px;
+      font-size:20px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 12px 28px rgba(39,174,96,.35);
+      transition:all .25s ease;
+    "
+    onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 18px 42px rgba(39,174,96,.45)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 28px rgba(39,174,96,.35)'"
+  >
+    Quero fazer meu Diagnóstico agora — R$ 29,90
+  </button>
+</section>
 
 
   <section class="what-you-get" aria-labelledby="faq-title">
@@ -1273,8 +1755,8 @@ details p{margin:10px 0 0;color:#2A5A7D}
       surface_color: "#2A5A7D",
       text_color: "#FFFFFF",
       light_bg_color: "#E8F0FE",
-      hero_title: "Descubra em minutos o que está travando suas finanças.",
-      hero_subtitle: "Um diagnóstico rápido, prático e preciso — e o primeiro passo para o verdadeiro controle financeiro.",
+      hero_title: "Existe um erro escondido drenando seu dinheiro — descubra qual é em menos de 10 minutos.",
+hero_subtitle: "O Diagnóstico 360 revela onde seu dinheiro está escapando sem você perceber — e mostra o ajuste exato que você precisa fazer para recuperar o controle.",
       cta_button: "Quero fazer meu diagnóstico agora – R$ 29,90",
       about_title: "Seu Raio-X Financeiro em menos de 10 minutos.",
       offer_title: "Invista R$ 29,90 para entender o que está te impedindo de crescer financeiramente.",
@@ -1434,10 +1916,7 @@ details p{margin:10px 0 0;color:#2A5A7D}
     }
 
    
-    document.querySelector('.secondary-button').addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelector('.how-it-works').scrollIntoView({ behavior: 'smooth' });
-    });
+    
   </script>
   
   <style>
