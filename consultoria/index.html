@@ -44,6 +44,51 @@ fbq('track', 'PageView');
     }
 
     /* Hero Section */
+.hero-bullets{
+  max-width:860px;
+  margin: 18px auto 14px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:1;
+}
+.hero-bullets .hb{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  font-size:14px;
+  line-height:1.2;
+}
+.hero-bullets .hb-ic{font-size:16px}
+
+.trust-row{
+  max-width:860px;
+  margin: 12px auto 0;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  font-size:13px;
+  opacity:.9;
+  position:relative;
+  z-index:1;
+}
+.trust-row span{
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(0,0,0,.12);
+}
+@media (max-width:768px){
+  .hero-bullets .hb{font-size:13px}
+  .trust-row{font-size:12px}
+}
+
     .hero {
       background: radial-gradient(circle at center, #2A5A7D 0%, #1A3B5D 100%);
       color: white;
@@ -770,6 +815,19 @@ fbq('track', 'PageView');
   }
 }
 
+    
+/* Segurança / risco percebido */
+.risk-block{background:#ffffff;padding:72px 20px}
+.risk-inner{max-width:980px;margin:0 auto;text-align:center}
+.risk-inner h2{font-size:32px;color:#1A3B5D;margin:0 0 16px;font-family:'Montserrat',sans-serif}
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:22px auto 10px;text-align:left}
+.risk-item{background:#F7FAFC;border:1px solid rgba(26,59,93,.08);border-radius:16px;padding:18px 16px}
+.risk-item h3{margin:0 0 6px;font-size:16px;color:#1A3B5D}
+.risk-item p{margin:0;font-size:14px;line-height:1.6;color:#2A5A7D}
+.risk-note{max-width:760px;margin:14px auto 0;font-size:12px;color:#2A5A7D;opacity:.9}
+.risk-cta{margin-top:18px}
+
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 { font-size: 36px; line-height:1.22; }
@@ -873,6 +931,30 @@ fbq('track', 'PageView');
   .cta-sticky button{background:transparent;border:0;color:#fff;font-weight:700;font-size:16px}
   body{padding-bottom:64px}
 }
+
+/* Desktop floating CTA */
+.desktop-cta{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:9998;
+  display:none;
+}
+.desktop-cta a{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:#27AE60;
+  color:#fff;
+  text-decoration:none;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:700;
+  box-shadow:0 12px 28px rgba(39,174,96,.35);
+}
+.desktop-cta a:hover{transform:translateY(-2px)}
+@media (max-width: 768px){ .desktop-cta{display:none!important;} }
+
 @media (prefers-reduced-motion: reduce){
   *{transition:none!important;animation:none!important}
 }
@@ -905,11 +987,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (hero)  hero.addEventListener('click',  (e) => {
     e.preventDefault();
+    try {
+      if (window.fbq) {
+        fbq('trackCustom','CTA_Click',{placement:'hero'});
+        fbq('track','InitiateCheckout');
+      }
+    } catch(e) {}
     window.open('https://pay.kiwify.com.br/QnDvoMB?utm_source=site&utm_medium=cta_hero&utm_campaign=consultoria360','_blank','noopener,noreferrer');
   });
 
   if (final) final.addEventListener('click', (e) => {
     e.preventDefault();
+    try {
+      if (window.fbq) {
+        fbq('trackCustom','CTA_Click',{placement:'final'});
+        fbq('track','InitiateCheckout');
+      }
+    } catch(e) {}
     window.open('https://pay.kiwify.com.br/QnDvoMB?utm_source=site&utm_medium=cta_final&utm_campaign=consultoria360','_blank','noopener,noreferrer');
   });
 
@@ -1057,8 +1151,22 @@ document.addEventListener('DOMContentLoaded', () => {
  <body><!-- Hero Section -->
   <section class="hero"><img src="Imagens/CONSULTORIA LOGO HORIZONTAL.png" alt="Consultoria Financeira Personalizada" class="hero-logo" fetchpriority="high">
 
-   <h1 id="hero-title">Uma análise individual das suas finanças, feita por quem olha número todo dia.</h1>
-<p id="hero-subtitle">Você responde a um formulário, eu mergulho nos seus números e entrego um vídeo e um relatório dizendo exatamente o que ajustar primeiro.</p>
+   <h1 id="hero-title">Uma análise individual das suas finanças — com próximos passos claros em 48h úteis.</h1>
+<p id="hero-subtitle">Você preenche um formulário simples (5–10 min). Eu analiso seus números e te entrego um <strong>vídeo personalizado</strong> + <strong>relatório</strong> com as 3 prioridades para destravar seu fluxo.</p>
+
+
+<div class="hero-bullets" role="list" aria-label="O que você recebe">
+  <div class="hb" role="listitem"><span class="hb-ic">🎥</span><span>Vídeo só para você, explicando seus números</span></div>
+  <div class="hb" role="listitem"><span class="hb-ic">📄</span><span>Relatório com alertas + 3 prioridades</span></div>
+  <div class="hb" role="listitem"><span class="hb-ic">✅</span><span>Plano direto: o que fazer primeiro</span></div>
+</div>
+
+<div class="trust-row" aria-label="Segurança e entrega">
+  <span>⏱️ Entrega em até 48h úteis</span>
+  <span>🔒 Pagamento seguro via Kiwify</span>
+  <span>📩 Suporte por e-mail</span>
+</div>
+
 
    <div class="cta-group">
   <button class="cta-button" id="cta-hero" aria-label="Comprar Consultoria Financeira Personalizada por R$ 29,90">
@@ -1268,6 +1376,34 @@ clip-path:ellipse(75% 100% at 50% 0%);opacity:.75;margin-top:-8px;"></div>
     </div>
   </div>
 </section>
+
+<section class="risk-block" aria-label="Segurança da compra">
+  <div class="risk-inner">
+    <h2>Compra segura e sem complicação</h2>
+    <div class="risk-grid">
+      <div class="risk-item">
+        <h3>Pagamento pela Kiwify</h3>
+        <p>Você paga por Pix ou cartão, em uma plataforma conhecida no Brasil. Seus dados ficam protegidos.</p>
+      </div>
+      <div class="risk-item">
+        <h3>Entrega com prazo claro</h3>
+        <p>Após enviar o formulário completo, eu preparo seu vídeo + relatório e entrego em até <strong>48h úteis</strong>.</p>
+      </div>
+      <div class="risk-item">
+        <h3>Privacidade</h3>
+        <p>As informações do formulário são usadas apenas para montar sua análise. Nada de “exposição”.</p>
+      </div>
+    </div>
+    <p class="risk-note">Observação: políticas de pagamento e reembolso seguem as regras da plataforma Kiwify e do Código de Defesa do Consumidor.</p>
+    <div class="risk-cta">
+      <button class="cta-button" onclick="window.open('https://pay.kiwify.com.br/QnDvoMB?utm_source=site&utm_medium=cta_mid&utm_campaign=consultoria360','_blank','noopener,noreferrer'); try{ if(window.fbq){ fbq('trackCustom','CTA_Click',{placement:'mid'}); fbq('track','InitiateCheckout'); } }catch(e){}">
+        Garantir minha consultoria por R$ 29,90
+      </button>
+    </div>
+  </div>
+</section>
+
+
 <section style="background:#EFF3F8;padding:70px 20px;text-align:left">
   <div style="
     max-width:900px;
@@ -1558,7 +1694,7 @@ details p{margin:10px 0 0;color:#2A5A7D}
       document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
       document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
       document.getElementById('cta-hero').textContent  = config.cta_button || defaultConfig.cta_button;
-	  document.getElementById('cta-final').textContent = (config.cta_button || defaultConfig.cta_button).replace('Quero ', 'Fazer '); // opcional
+	  document.getElementById('cta-final').textContent = config.cta_button || defaultConfig.cta_button;
       document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
       document.getElementById('offer-title').textContent = config.offer_title || defaultConfig.offer_title;
       document.getElementById('offer-subtitle').textContent = config.offer_subtitle || defaultConfig.offer_subtitle;
@@ -1674,6 +1810,14 @@ details p{margin:10px 0 0;color:#2A5A7D}
 }
 </style>
 
+
+<div class="desktop-cta" id="desktop-cta" aria-label="Atalho para compra">
+  <a href="https://pay.kiwify.com.br/QnDvoMB?utm_source=site&utm_medium=cta_floating&utm_campaign=consultoria360" target="_blank" rel="noopener noreferrer"
+     onclick="try{ if(window.fbq){ fbq('trackCustom','CTA_Click',{placement:'floating'}); fbq('track','InitiateCheckout'); } }catch(e){}">
+     Comprar por R$ 29,90 <span aria-hidden="true">→</span>
+  </a>
+</div>
+
 <div class="cta-sticky" aria-hidden="false">
   <button aria-label="Comprar Consultoria Financeira Personalizada por 29,90"
           onclick="window.open('https://pay.kiwify.com.br/QnDvoMB?utm_source=site&utm_medium=cta_fixo&utm_campaign=consultoria', '_blank','noopener,noreferrer')">
@@ -1690,6 +1834,19 @@ details p{margin:10px 0 0;color:#2A5A7D}
     const my = ((e.clientY - r.top) / r.height) * 100;
     grid.style.setProperty('--mx', mx+'%'); grid.style.setProperty('--my', my+'%');
   });
+</script>
+
+<script>
+  (function(){
+    const el = document.getElementById('desktop-cta');
+    if(!el) return;
+    const onScroll = () => {
+      const show = window.scrollY > 520;
+      el.style.display = show ? 'block' : 'none';
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
 </script>
 
 </body>
