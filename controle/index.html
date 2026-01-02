@@ -1,0 +1,1168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '840522965091010');
+fbq('track', 'PageView');
+</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Controle Total Financeiro | Método 360 Financeiro</title>
+  <meta name="description" content="Você não precisa ganhar mais. Precisa parar de perder. Aprenda o método simples para controlar seu dinheiro em 10 minutos por semana. Acesso imediato por R$ 39,90." />
+  <meta name="theme-color" content="#143E6B" />
+
+  <!-- Favicon (coloque o arquivo em /Imagens/favicon.png) -->
+  <link rel="icon" type="image/png" href="Imagens/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Controle Total Financeiro | Método 360 Financeiro" />
+  <meta property="og:description" content="Controle seu dinheiro sem planilhas complicadas. Um método simples, aplicável com qualquer ferramenta. Acesso imediato por R$ 39,90." />
+  <meta property="og:type" content="website" />
+  <!-- Coloque um banner em /Imagens/og.jpg (1200x630) se quiser -->
+  <meta property="og:image" content="Imagens/og.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0B1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.56);
+      --brandA: #143E6B; /* azul escuro Método 360 */
+      --brandB: #136F63; /* verde petróleo Método 360 */
+      --accent: #22C55E;
+      --warn: #F59E0B;
+      --danger: #EF4444;
+
+      --max: 1120px;
+      --radius: 18px;
+      --radius2: 26px;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --shadow2: 0 10px 25px rgba(0,0,0,.26);
+      --stroke: rgba(255,255,255,.10);
+    }
+/* Suaviza a transição entre seções (elimina “corte bruto”) */
+section{
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.00),
+    rgba(255,255,255,0.03)
+  );
+}
+
+section::before{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:-28px;
+  height:28px;
+  background: linear-gradient(
+    180deg,
+    rgba(11,18,32,0),
+    rgba(11,18,32,0.55)
+  );
+  pointer-events:none;
+}
+
+section::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  bottom:-28px;
+  height:28px;
+  background: linear-gradient(
+    180deg,
+    rgba(11,18,32,0.55),
+    rgba(11,18,32,0)
+  );
+  pointer-events:none;
+}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+	background-attachment: fixed;
+
+   
+    
+	 margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  position: relative;
+	
+    
+    }
+	section{
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+section:first-of-type{
+  border-top: none;
+}
+	/* Background fixo (remove a sensação de “corte” entre seções) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 800px at 15% 5%, rgba(19,111,99,.35), transparent 60%),
+    radial-gradient(900px 700px at 90% 0%, rgba(20,62,107,.45), transparent 55%),
+    radial-gradient(800px 700px at 50% 100%, rgba(34,197,94,.14), transparent 60%);
+}
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width:100%; max-width: var(--max); margin:0 auto; padding:0 20px; }
+
+    /* Topbar */
+    .topbar{
+      position: sticky; top:0; z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,.62);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      min-width: 230px;
+    }
+    .brand img{ height: 34px; width:auto; display:block; }
+    .brand .name{
+      display:flex; flex-direction:column;
+      line-height: 1.1;
+    }
+    .brand .name b{ font-size: 13px; letter-spacing:.3px; }
+    .brand .name span{ font-size: 12px; color: var(--muted2); }
+
+    .nav{
+      display:flex; align-items:center; gap: 18px;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .nav a{ padding: 8px 10px; border-radius: 10px; }
+    .nav a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+
+    .ctaTop{
+      display:flex; gap: 10px; align-items:center;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 700;
+      box-shadow: none;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16); }
+    .btn:active{ transform: translateY(0px); }
+    .btnPrimary{
+      border-color: rgba(34,197,94,.35);
+      background: linear-gradient(135deg, rgba(19,111,99,.92), rgba(34,197,94,.88));
+      color: #04110B;
+      box-shadow: 0 10px 25px rgba(34,197,94,.18);
+    }
+    .btnPrimary:hover{ background: linear-gradient(135deg, rgba(19,111,99,1), rgba(34,197,94,1)); border-color: rgba(34,197,94,.48); }
+    .btnGhost{
+      background: transparent;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 26px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .badge i{
+      width: 10px; height: 10px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--brandB), var(--accent));
+      display:inline-block;
+      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+    }
+    h1{
+      margin: 14px 0 12px;
+      font-size: 46px;
+      line-height: 1.06;
+      letter-spacing: -1.2px;
+    }
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 56ch;
+    }
+    .heroActions{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      margin: 18px 0 14px;
+      align-items:center;
+    }
+    .micro{
+      color: var(--muted2);
+      font-size: 12px;
+    }
+    .bullets{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .chip{
+      display:flex; gap: 10px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+    }
+    .chip svg{ flex:0 0 auto; margin-top: 2px; }
+    .chip b{ display:block; font-size: 13px; }
+    .chip span{ display:block; color: var(--muted2); font-size: 12px; margin-top: 2px; }
+
+    /* Card right */
+    .card{
+      border-radius: var(--radius2);
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 300px at 10% 0%, rgba(19,111,99,.38), transparent 60%),
+        radial-gradient(600px 300px at 90% 10%, rgba(20,62,107,.35), transparent 60%);
+      opacity:.65;
+      pointer-events:none;
+    }
+    .card .pad{ position:relative; padding: 20px; }
+    .priceBox{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(11,18,32,.38);
+      box-shadow: var(--shadow2);
+    }
+    .priceTop{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap: 14px;
+    }
+    .priceTop .tag{
+      display:inline-flex; align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(245,158,11,.14);
+      border: 1px solid rgba(245,158,11,.22);
+      color: rgba(255,255,255,.9);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .price{
+      margin: 10px 0 8px;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    .price small{
+      font-size: 13px;
+      color: var(--muted2);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .list{
+      margin: 12px 0 0;
+      padding: 0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .list li{ display:flex; gap: 10px; align-items:flex-start; }
+    .list svg{ margin-top: 2px; flex:0 0 auto; }
+    .divider{
+      height:1px; background: rgba(255,255,255,.10); margin: 14px 0;
+    }
+    .safe{
+      display:flex; gap: 10px; align-items:flex-start;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+
+    /* Sections */
+    section{ padding: 40px 0; }
+    .sectionTitle{
+      display:flex; flex-direction:column; gap: 10px;
+      margin-bottom: 18px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size: 30px;
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+    }
+    .sectionTitle p{
+      margin:0;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+    }
+    .panel h3{
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .panel p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quote{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(34,197,94,.20);
+      background: linear-gradient(180deg, rgba(19,111,99,.18), rgba(255,255,255,.04));
+      padding: 18px;
+    }
+    .quote p{ margin: 0; color: rgba(255,255,255,.88); font-size: 15px; }
+    .quote b{ display:block; margin-top: 10px; color: var(--muted2); font-size: 13px; }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .step{
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+      position: relative;
+      overflow:hidden;
+      min-height: 150px;
+    }
+    .step::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(300px 150px at 10% 0%, rgba(20,62,107,.25), transparent 55%);
+      pointer-events:none;
+      opacity: .7;
+    }
+    .step .n{
+      position:relative;
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      font-weight: 800;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 10px;
+    }
+    .step h3{ position:relative; margin: 0 0 6px; font-size: 16px; }
+    .step p{ position:relative; margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Testimonials */
+    .test{
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+      min-height: 140px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .stars{
+      letter-spacing: 2px;
+      color: rgba(245,158,11,.95);
+      font-size: 14px;
+    }
+    .test p{ margin:0; color: var(--muted); font-size: 14px; }
+    .test b{ margin-top:auto; color: var(--muted2); font-size: 13px; }
+
+    /* FAQ */
+    details{
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px;
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor:pointer;
+      font-weight: 700;
+      color: rgba(255,255,255,.90);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0 90px;
+      border-top: 1px solid var(--stroke);
+      color: var(--muted2);
+      font-size: 12px;
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+
+    /* Sticky mobile CTA */
+    .stickyCta{
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 10px 12px;
+      background: rgba(11,18,32,.70);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--stroke);
+      z-index: 999;
+      display:none;
+    }
+    .stickyCta .row{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .stickyCta .row .mini{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.1;
+      gap: 2px;
+    }
+    .stickyCta .row .mini b{ font-size: 13px; }
+    .stickyCta .row .mini span{ font-size: 12px; color: var(--muted2); }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .nav{ display:none; }
+      h1{ font-size: 40px; }
+      .bullets{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .footerGrid{ grid-template-columns: 1fr; }
+      .stickyCta{ display:block; }
+      footer{ padding-bottom: 120px; }
+    }
+	
+	/* --- Autor (bloco discreto, pós-FAQ) --- */
+.authorBox{
+  display:flex;
+  gap: 14px;
+  align-items:center;
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.05);
+  padding: 16px;
+}
+
+.authorPhoto{
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+  flex: 0 0 auto;
+}
+
+.authorText b{
+  display:block;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+}
+
+.authorText p{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <a class="brand" href="#top">
+          <!-- Logo (coloque em /Imagens/logo.png ou ajuste abaixo) -->
+          <img src="Imagens/logo.png" alt="Método 360 Financeiro" onerror="this.style.display='none';" />
+          <div class="name">
+            <b>Método 360 Financeiro</b>
+            <span>Controle Total Financeiro</span>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="#o-que-e">O que é</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#o-que-recebe">O que você recebe</a>
+          <a href="#faq">Dúvidas</a>
+        </nav>
+
+        <div class="ctaTop">
+          <a class="btn btnGhost" href="#preco">Ver oferta</a>
+          <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">Quero meu controle agora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div>
+          <div class="badge"><i></i> Low Ticket • Acesso imediato • Método aplicável com qualquer ferramenta</div>
+          <h1>Controle seu dinheiro com um método simples — <span style="color:rgba(34,197,94,.95)">sem viver no susto</span>.</h1>
+          <p class="lead">
+            O Controle Total Financeiro do Método 360 não é “só uma planilha”.
+            É o passo a passo para você <b>enxergar</b> seu dinheiro, <b>decidir</b> com clareza e <b>voltar a ter paz</b>.
+            Pode ser no caderno, no papel, em qualquer planilha — e, se quiser, na planilha oficial do Método 360 (vendida separadamente).
+          </p>
+
+          <div class="heroActions">
+            <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">
+              Quero começar agora • R$ 39,90
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h12M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn" href="#como-funciona">Entender antes de comprar</a>
+            <span class="micro">✅ Compra segura pela Kiwify • acesso imediato</span>
+          </div>
+
+          <div class="bullets">
+            <div class="chip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>Sem “dietas financeiras”</b><span>Controle realista que funciona na vida de verdade.</span></div>
+            </div>
+            <div class="chip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66 4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66 4.24-4.24" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round"/></svg>
+              <div><b>Clareza em 10 min/semana</b><span>Rotina leve para manter consistência sem sofrer.</span></div>
+            </div>
+            <div class="chip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2a4 4 0 0 1 7 2c0 5.65-7 10-7 10z" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>Menos culpa, mais comando</b><span>Você decide, em vez de “torcer” pelo fim do mês.</span></div>
+            </div>
+            <div class="chip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4.5-9 4.5L3 7.5 12 3z" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7.5v9L12 21l-9-4.5v-9" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>Estrutura (não motivação)</b><span>O método te sustenta mesmo em semanas ruins.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="Oferta">
+          <div class="pad">
+            <div class="priceBox" id="preco">
+              <div class="priceTop">
+                <div>
+                  <div style="font-weight:800; letter-spacing:-.3px; font-size:16px;">Controle Total Financeiro</div>
+                  <div style="color:var(--muted2); font-size:12px; margin-top:2px;">Acesso imediato (digital)</div>
+                </div>
+                <div class="tag">Preço promocional</div>
+              </div>
+
+              <div class="price">R$ 39,90 <small>à vista</small></div>
+<p style="margin:6px 0 0; font-size:12px; color:var(--muted2);">
+  Ideal para quem quer começar ainda este mês.
+</p>
+
+              <a class="btn btnPrimary" style="width:100%; margin-top:10px;" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">
+                Quero garantir meu acesso
+              </a>
+
+              <ul class="list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Implementação guiada: do “zero” ao controle funcionando</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Aplicável com papel, caderno, app ou planilha</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Rotina semanal curta (sem virar “trabalho”)</span>
+                </li>
+              </ul>
+
+              <div class="divider"></div>
+
+              <div class="safe">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <b style="display:block; color:rgba(255,255,255,.88);">Compra protegida</b>
+                  Pagamento processado pela Kiwify. Você recebe acesso imediato ao conteúdo.
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <div class="quote">
+                <p>
+                  “O que você não mede, você não controla. E o que você não controla, controla você.”
+                </p>
+                <b>— Princípio base do Método 360</b>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- O QUE É -->
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Você não precisa ganhar mais. Precisa <span style="color:rgba(34,197,94,.95)">parar de perder</span>.</h2>
+        <p>
+          A maior “sangria” do mês não está num gasto grande — está no conjunto de decisões pequenas
+          feitas no escuro. O Controle Total Financeiro te dá um sistema simples para enxergar o todo,
+          ajustar o que importa e voltar a ter direção.
+        </p>
+      </div>
+
+      <div class="grid3">
+        <div class="panel">
+          <h3>O problema real</h3>
+          <p>Não é falta de vontade. É falta de estrutura. Sem rotina e categorias claras, o dinheiro some “sem explicação”.</p>
+        </div>
+        <div class="panel">
+          <h3>O que muda</h3>
+          <p>Você passa do “apagar incêndio” para o controle: sabe quanto pode gastar, onde ajustar e o que priorizar.</p>
+        </div>
+        <div class="panel">
+          <h3>O método</h3>
+          <p>Um protocolo aplicável com qualquer ferramenta: papel, caderno, app, planilha — e depois, se quiser, a planilha oficial.</p>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>O que este produto NÃO é</h3>
+          <p>
+            Não é promessa mágica, não é “ficar rico em 7 dias”, não é planilha milagrosa.
+            É um método simples e consistente para colocar o dinheiro no seu lugar: sob seu comando.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>O que este produto É</h3>
+          <p>
+            Um caminho prático para você organizar entradas/saídas, criar uma visão do mês, alinhar com seus objetivos e
+            manter o controle com uma rotina leve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Como funciona na prática (sem complicar)</h2>
+        <p>Você vai aplicar o método em ciclos simples. A meta é consistência — não perfeição.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Mapa do seu mês</h3>
+          <p>Organize entradas e contas fixas, criando uma visão clara do que é “obrigatório” e do que é “decisão”.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Categorias que doem (as verdadeiras)</h3>
+          <p>Você identifica os 3–5 pontos que mais drenam seu dinheiro e define limites realistas (sem fantasia).</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Ritual semanal de 10 minutos</h3>
+          <p>Uma checagem curta para manter o controle vivo e evitar “sumiços” — antes que virem dívida.</p>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="panel">
+        <h3>Por que isso dá certo?</h3>
+        <p>
+          Porque o método não depende de motivação. Ele cria um sistema que te puxa de volta para o controle,
+          mesmo quando a rotina aperta. Você aprende a enxergar e ajustar rápido — sem virar refém de planilhas complexas.
+        </p>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">Quero aplicar ainda hoje</a>
+        <a class="btn" href="#o-que-recebe">Ver tudo que vou receber</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ RECEBE -->
+  <section id="o-que-recebe">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>O que você recebe ao entrar</h2>
+        <p>Conteúdo direto ao ponto para você implementar rápido e manter por anos.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="panel">
+          <h3>Guia do Método 360 (passo a passo)</h3>
+          <p>Estrutura completa para organizar seu mês, definir limites e manter o controle com leveza.</p>
+        </div>
+        <div class="panel">
+          <h3>Templates de categorias e regras</h3>
+          <p>Modelos prontos para você não ficar “inventando do zero”. Ajuste para sua realidade e siga.</p>
+        </div>
+        <div class="panel">
+          <h3>Checklist semanal de 10 minutos</h3>
+          <p>Uma rotina objetiva para não abandonar no meio do caminho e manter o método vivo.</p>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Bônus: Plano de ação “Primeiros 7 dias”</h3>
+          <p>O roteiro para você sair da inércia e colocar o controle funcionando já na primeira semana.</p>
+        </div>
+        <div class="panel">
+          <h3>Importante</h3>
+          <p>
+            A planilha oficial do Método 360 (Planilha Mestre) é um produto separado.
+            Aqui você compra o <b>método</b> — que funciona com qualquer ferramenta.
+          </p>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <!-- Visual (coloque uma imagem em /Imagens/mockup.png se quiser) -->
+      <div class="card" style="box-shadow:var(--shadow2)">
+        <div class="pad" style="display:grid; grid-template-columns: 1.05fr .95fr; gap: 16px; align-items:center;">
+          <div>
+            <div class="badge"><i></i> Resultado esperado: clareza + decisão</div>
+            <h3 style="margin:12px 0 8px; font-size:22px; letter-spacing:-.5px;">Você sai do “não sei pra onde foi” para “eu sei o que estou fazendo”.</h3>
+            <p style="margin:0; color:var(--muted); font-size:14px;">
+              Controle não é restrição. Controle é liberdade com consciência. Você não precisa cortar tudo —
+              precisa de um sistema para escolher com intenção.
+            </p>
+            <div style="margin-top:14px;">
+              <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">Entrar por R$ 39,90</a>
+            </div>
+          </div>
+          <div class="panel" style="background: rgba(255,255,255,.04);">
+            <img src="Imagens/mockup.png" alt="Mockup do produto" style="width:100%; height:auto; border-radius: 14px; border: 1px solid var(--stroke); background: rgba(255,255,255,.03);" onerror="this.style.display='none';" />
+            <p style="margin:12px 0 0; color:var(--muted2); font-size:12px;">
+  Representação visual do método.
+</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRA QUEM É -->
+  <section id="pra-quem-e">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Para quem é (e para quem não é)</h2>
+        <p>Isso evita frustração e aumenta sua chance de ter resultado.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>É para você se…</h3>
+          <ul class="list" style="margin-top:10px;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>você trabalha e sente que o dinheiro “desaparece”</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>você quer controle sem virar “refém de planilha”</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>você topa aplicar uma rotina curta com consistência</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>você quer decidir com clareza, sem culpa</span></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Não é para você se…</h3>
+          <ul class="list" style="margin-top:10px;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/><path d="M2 12h20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/></svg><span>você quer uma promessa de “ganhar dinheiro fácil”</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/><path d="M2 12h20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/></svg><span>você quer “ver depois” e não aplicar nada</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/><path d="M2 12h20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/></svg><span>você não aceita olhar para seus números com honestidade</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/><path d="M2 12h20" stroke="rgba(239,68,68,.95)" stroke-width="2" stroke-linecap="round"/></svg><span>você procura “a planilha perfeita” em vez do método</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA / DEPOIMENTOS -->
+  <section id="prova">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Depoimentos de alunos do Método 360 Financeiro</h2>
+
+        <p>
+          Veja o que quem já aplicou o Método 360 Financeiro está dizendo.
+        </p>
+      </div>
+
+      <div class="grid3">
+        <div class="test">
+          <div class="stars">★★★★★</div>
+          <p>“Em uma semana eu parei de ter ansiedade com o app do banco. Agora eu sei o que posso gastar sem culpa.”</p>
+          <b>— Cláudia Matoso, Belo Horizonte/MG</b>
+        </div>
+        <div class="test">
+          <div class="stars">★★★★★</div>
+          <p>“O melhor foi o ritual de 10 minutos. Eu sempre começava e largava. Agora ficou simples de manter.”</p>
+          <b>— Robson Campos, Joinville/SC</b>
+        </div>
+        <div class="test">
+          <div class="stars">★★★★★</div>
+          <p>“Eu achava que precisava ganhar mais. Descobri que eu só estava sem direção. O método abriu meus olhos.”</p>
+          <b>— Solange Siqueira, Salvador/BA</b>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">Quero meu acesso por R$ 39,90</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Oferta direta e sem enrolação</h2>
+        <p>Você entra, aplica, vê clareza. É isso.</p>
+      </div>
+
+      <div class="card">
+        <div class="pad" style="display:grid; grid-template-columns: 1.05fr .95fr; gap: 16px; align-items: stretch;">
+          <div>
+            <h3 style="margin:0 0 8px; font-size:22px; letter-spacing:-.5px;">Controle Total Financeiro • Método 360</h3>
+            <p style="margin:0; color:var(--muted); font-size:14px;">
+              Tudo o que você precisa para implementar o controle na sua realidade — sem depender da ferramenta “perfeita”.
+            </p>
+
+            <ul class="list" style="margin-top:14px;">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Passo a passo do método (da base ao ritual semanal)</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Templates de categorias, regras e limites realistas</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Plano “Primeiros 7 dias” para entrar em ação</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(34,197,94,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Acesso imediato pela Kiwify</span></li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <div class="safe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <b style="display:block; color:rgba(255,255,255,.88);">Transparência</b>
+                Resultados dependem da aplicação. O método é simples — mas precisa ser feito.
+              </div>
+            </div>
+          </div>
+
+          <div class="priceBox" style="position:relative;">
+            <div class="priceTop">
+              <div>
+                <div style="font-weight:800; font-size:15px;">Entrar agora</div>
+                <div style="color:var(--muted2); font-size:12px; margin-top:2px;">Oferta de baixo risco</div>
+              </div>
+              <div class="tag">R$ 39,90</div>
+            </div>
+
+            <div class="price" style="margin-top:12px;">R$ 39,90 <small>à vista</small></div>
+
+            <a class="btn btnPrimary" style="width:100%; margin-top:10px;" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">
+              Comprar agora
+            </a>
+
+            <p style="margin:10px 0 0; color:var(--muted2); font-size:12px;">
+              ⚡ Dica: se você está lendo isso, você já sabe que precisa de controle.
+              Pare de adiar. Em 7 dias você vai estar agradecendo por ter começado.
+            </p>
+
+            <div class="divider"></div>
+
+            <p style="margin:0; color:var(--muted); font-size:13px;">
+              Quer turbinar com a Planilha Mestre oficial depois? Sem problema.
+              O método te prepara para usar qualquer ferramenta com eficiência.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Dúvidas frequentes</h2>
+        <p>Se ainda tiver alguma dúvida, a resposta provavelmente está aqui.</p>
+      </div>
+<details>
+  <summary>O que é o Método 360 Financeiro?</summary>
+  <p>
+    É o ecossistema do Método 360: um conjunto de etapas e ferramentas para te dar clareza e decisão.
+    O Controle Total Financeiro é a base (primeiro passo). Outros produtos existem como complemento,
+    mas <b>não são obrigatórios</b> para você ter controle.
+  </p>
+</details>
+<details>
+
+  <summary>O que é exatamente o Controle Total Financeiro?</summary>
+  <p>
+    O Controle Total Financeiro é <b>um dos quatro pilares</b> do Método 360 Financeiro.
+    Ele é a base do método e o ponto de partida para quem quer parar de perder dinheiro
+    no automático.
+  </p>
+  <p>
+    Nesse pilar, você aprende a organizar sua realidade financeira, definir limites
+    possíveis e criar um ritual simples de acompanhamento. O controle pode ser aplicado
+    com qualquer ferramenta: papel, caderno, aplicativo ou planilha.
+  </p>
+</details>
+<details>
+  <summary>Quais são os pilares do Método 360 Financeiro?</summary>
+  <p>
+    O Método 360 Financeiro é estruturado em quatro pilares:
+  </p>
+  <ul>
+    <li><b>Controle</b> – entender e organizar a realidade financeira atual</li>
+    <li><b>Planejamento</b> – decidir conscientemente o destino do dinheiro</li>
+    <li><b>Multiplicação</b> – fazer o dinheiro trabalhar a seu favor</li>
+    <li><b>Mentalidade</b> – sustentar decisões financeiras no longo prazo</li>
+  </ul>
+  <p>
+    O Controle Total Financeiro trabalha exclusivamente o primeiro pilar,
+    que é a base para todos os outros.
+  </p>
+</details>
+
+      <details>
+        <summary>Eu preciso da Planilha Mestre para aplicar?</summary>
+        <p>
+          Não. Este produto é o <b>método</b>. Você pode aplicar com papel, caderno, app ou qualquer planilha.
+          A Planilha Mestre oficial do Método 360 é vendida separadamente e serve como ferramenta extra.
+        </p>
+      </details>
+
+      <details>
+        <summary>Em quanto tempo eu vejo resultado?</summary>
+        <p>
+          Você costuma sentir clareza já na primeira implementação (mapa do mês + categorias).
+          O resultado mais sólido vem com consistência no ritual semanal.
+        </p>
+      </details>
+
+      <details>
+        <summary>Isso funciona para quem tem dívida?</summary>
+        <p>
+          O método ajuda a organizar o cenário e tomar decisões com base em números reais.
+          Se você está endividado, o controle é o primeiro passo para sair do ciclo.
+        </p>
+      </details>
+
+      <details>
+        <summary>Como eu recebo o acesso?</summary>
+        <p>
+          Após a compra, a Kiwify libera o acesso imediatamente no e-mail cadastrado.
+        </p>
+      </details>
+
+      <details>
+        <summary>E se eu não aplicar?</summary>
+        <p>
+          Nada muda. O método é simples, mas precisa ser executado. Por isso existe o plano “Primeiros 7 dias”
+          e o ritual semanal de 10 minutos — para reduzir a chance de abandono.
+        </p>
+      </details>
+
+      <div style="margin-top:16px;">
+        <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">Quero resolver isso agora</a>
+      </div>
+    </div>
+  </section>
+<section id="sobre">
+  <div class="wrap">
+    <div class="sectionTitle">
+      <h2>Sobre o criador</h2>
+    </div>
+
+    <div class="authorBox">
+      <img class="authorPhoto" src="Imagens/gabriel.png" alt="Gabriel Arantes">
+      <div class="authorText">
+        <b>Gabriel Arantes • Administrador Financeiro</b>
+<p>
+  Sou administrador financeiro, professor e criador do Método 360 Financeiro.
+  Desenvolvi o método para ajudar pessoas comuns a saírem do descontrole financeiro
+  com processos simples, aplicáveis à vida real — sem promessas irreais e sem depender
+  de fórmulas milagrosas.
+</p>
+<p>
+  O Controle Total Financeiro é o ponto de partida do método: a base que permite
+  clareza, decisão e evolução financeira de forma consistente.
+</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+ <footer>
+  <div class="wrap">
+    <div class="footerGrid">
+
+      <!-- BLOCO MARCA -->
+      <div>
+        <b style="color:rgba(255,255,255,.86);">Método 360 Financeiro</b><br/>
+        <span>Controle Total Financeiro • Produto digital</span>
+
+        <div style="margin-top:10px; line-height:1.6;">
+          <span class="micro">
+            <a href="https://www.m360financeiro.com.br" target="_blank" rel="noopener">
+              www.m360financeiro.com.br
+            </a>
+          </span><br/>
+
+          <span class="micro">
+            <a href="#" target="_blank" rel="noopener">Política de Privacidade</a> •
+            <a href="#" target="_blank" rel="noopener">Termos de Uso</a>
+          </span>
+        </div>
+      </div>
+
+      <!-- BLOCO AVISOS -->
+      <div>
+        <b style="color:rgba(255,255,255,.86);">Avisos legais</b><br/>
+        <span>
+          Este produto tem caráter educacional e não constitui recomendação financeira.
+          Resultados variam conforme hábitos, decisões e aplicação do método.
+        </span>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT ÚNICO -->
+    <div style="margin-top:14px; color:rgba(255,255,255,.45); font-size:12px;">
+      © <span id="year"></span> Método 360 Financeiro. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Sticky CTA (mobile) -->
+  <div class="stickyCta" aria-label="CTA fixa">
+    <div class="row">
+      <div class="mini">
+        <b>Controle Total Financeiro</b>
+        <span>R$ 39,90 • acesso imediato</span>
+      </div>
+      <a class="btn btnPrimary" href="https://pay.kiwify.com.br/6SfHrck" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout');">Comprar</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        if(!id || id === '#') return;
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
