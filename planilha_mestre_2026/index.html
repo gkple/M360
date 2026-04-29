@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gestão Financeira Método 360</title>
+  <link rel="icon" type="image/png" href="imagens/favicon.png">
+  <meta name="description" content="Organize sua vida financeira com um sistema simples, guiado e pronto para controlar entradas, gastos, metas e planejamento ao longo de 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+  :root {
+    --azul: #143e6b;
+    --verde: #136F63;
+    --gelo: #F5F7FA;
+    --cinza: #A8A8A8;
+    --texto: #152033;
+    --branco: #fff;
+    --sombra: 0 20px 55px rgba(20,62,107,.16);
+    --radius: 24px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter','Open Sans',Arial,sans-serif;
+    color: var(--texto);
+    background: var(--gelo);
+    line-height: 1.55;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Poppins','Montserrat',Arial,sans-serif;
+    line-height: 1.08;
+    color: var(--azul);
+    margin: 0 0 18px;
+    letter-spacing: -.04em;
+  }
+
+  h1 {
+    font-size: clamp(2.35rem,6vw,5rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem,4vw,3.35rem);
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    letter-spacing: -.02em;
+  }
+
+  p {
+    margin: 0 0 18px;
+    font-size: 1.05rem;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .container {
+    width: min(1120px,calc(100% - 38px));
+    margin: 0 auto;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(14px);
+    background: rgba(245,247,250,.86);
+    border-bottom: 1px solid rgba(20,62,107,.08);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    gap: 20px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    color: var(--azul);
+  }
+
+  .brand img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+  }
+
+  .navlinks {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: .94rem;
+    color: #415066;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--verde);
+    color: white;
+    text-decoration: none;
+    padding: 15px 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    box-shadow: 0 12px 28px rgba(19,111,99,.22);
+    transition: .2s ease;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(19,111,99,.28);
+  }
+
+  .btn.secondary {
+    background: var(--azul);
+    box-shadow: 0 12px 28px rgba(20,62,107,.22);
+  }
+
+  .hero {
+    padding: 78px 0 56px;
+    background:
+      radial-gradient(circle at 88% 5%,rgba(19,111,99,.16),transparent 31%),
+      radial-gradient(circle at 8% 12%,rgba(20,62,107,.14),transparent 35%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.03fr .97fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 13px;
+    background: rgba(19,111,99,.1);
+    color: var(--verde);
+    border: 1px solid rgba(19,111,99,.18);
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: .9rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-sub {
+    font-size: 1.25rem;
+    color: #34445c;
+    max-width: 650px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 28px 0 18px;
+  }
+
+  .microcopy {
+    color: #68758a;
+    font-size: .92rem;
+  }
+
+  .mockup {
+    background: var(--branco);
+    border-radius: 32px;
+    padding: 18px;
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(20,62,107,.08);
+  }
+
+  .screen {
+    border-radius: 22px;
+    background: linear-gradient(145deg,#fff,#edf5f3);
+    overflow: hidden;
+    border: 1px solid rgba(20,62,107,.1);
+  }
+
+  .screen-top {
+    background: var(--azul);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.65);
+  }
+
+  .screen-body {
+    padding: 22px;
+  }
+
+  .dashboard-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .dashboard-title strong {
+    color: var(--azul);
+    font-family: Poppins,sans-serif;
+    font-size: 1.15rem;
+  }
+
+  .tag {
+    background: rgba(19,111,99,.11);
+    color: var(--verde);
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: .78rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .metric {
+    background: #fff;
+    border-radius: 16px;
+    padding: 14px;
+    border: 1px solid rgba(20,62,107,.08);
+  }
+
+  .metric span {
+    display: block;
+    color: #6b7688;
+    font-size: .75rem;
+    margin-bottom: 6px;
+  }
+
+  .metric b {
+    color: var(--azul);
+    font-size: 1.05rem;
+  }
+
+  .bars {
+    display: grid;
+    gap: 10px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(20,62,107,.08);
+  }
+
+  .bar {
+    height: 12px;
+    border-radius: 999px;
+    background: #e7ebf0;
+    overflow: hidden;
+  }
+
+  .bar i {
+    display: block;
+    height: 100%;
+    background: var(--verde);
+    border-radius: 999px;
+  }
+
+  section {
+    padding: 78px 0;
+  }
+
+  .section-head {
+    max-width: 760px;
+    margin-bottom: 34px;
+  }
+
+  .section-head.center {
+    text-align: center;
+    margin: 0 auto 38px;
+  }
+
+  .muted {
+    color: #526176;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  .card {
+    background: var(--branco);
+    padding: 28px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 34px rgba(20,62,107,.08);
+    border: 1px solid rgba(20,62,107,.08);
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(19,111,99,.11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--verde);
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+
+  .dark {
+    background: var(--azul);
+    color: #fff;
+  }
+
+  .dark h2,
+  .dark h3 {
+    color: #fff;
+  }
+
+  .dark .muted {
+    color: rgba(255,255,255,.78);
+  }
+
+  .dark .card {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.12);
+    box-shadow: none;
+    color: #fff;
+  }
+
+  .steps {
+    counter-reset: step;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .step:before {
+    counter-increment: step;
+    content: counter(step);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+  }
+
+  .video-box {
+    aspect-ratio: 16/9;
+    border-radius: 28px;
+    background: linear-gradient(135deg,var(--azul),#0d2745);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 28px;
+    box-shadow: var(--sombra);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .play {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 2rem;
+  }
+
+  .offer {
+    background: #fff;
+    border-radius: 34px;
+    padding: 38px;
+    border: 2px solid rgba(19,111,99,.18);
+    box-shadow: var(--sombra);
+  }
+
+  .price {
+    font-family: Poppins,sans-serif;
+    color: var(--azul);
+    font-size: clamp(2.4rem,5vw,4.2rem);
+    line-height: 1;
+    margin: 10px 0;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .list li {
+    padding-left: 32px;
+    position: relative;
+  }
+
+  .list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--verde);
+    font-weight: 900;
+  }
+
+  .faq {
+    display: grid;
+    gap: 14px;
+  }
+
+  details {
+    background: #fff;
+    border: 1px solid rgba(20,62,107,.09);
+    border-radius: 18px;
+    padding: 18px 20px;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--azul);
+  }
+
+  details p {
+    margin: 12px 0 0;
+    color: #526176;
+  }
+
+  .footer {
+    padding: 40px 0;
+    background: #102f52;
+    color: rgba(255,255,255,.75);
+    font-size: .92rem;
+  }
+
+  .footer img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+  }
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .notice {
+    font-size: .86rem;
+    color: #6e7b8f;
+    margin-top: 16px;
+  }
+
+  @media (max-width:880px) {
+    .hero-grid,
+    .grid-2,
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .navlinks {
+      display: none;
+    }
+
+    .hero {
+      padding-top: 46px;
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+  .eyebrow-dark {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 13px;
+  background: rgba(255,255,255,.15);
+  color: #ffffff;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .9rem;
+  margin-bottom: 18px;
+}
+.icon-dark {
+  background: #136F63; /* seu verde */
+  color: #ffffff;
+}
+</style>
+  <!-- <style>:root{--azul:#143e6b;--verde:#136F63;--gelo:#F5F7FA;--cinza:#A8A8A8;--texto:#152033;--branco:#fff;--sombra:0 20px 55px rgba(20,62,107,.16);--radius:24px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Inter','Open Sans',Arial,sans-serif;color:var(--texto);background:var(--gelo);line-height:1.55}h1,h2,h3{font-family:'Poppins','Montserrat',Arial,sans-serif;line-height:1.08;color:var(--azul);margin:0 0 18px;letter-spacing:-.04em}h1{font-size:clamp(2.35rem,6vw,5rem)}h2{font-size:clamp(2rem,4vw,3.35rem)}h3{font-size:1.35rem;letter-spacing:-.02em}p{margin:0 0 18px;font-size:1.05rem}a{color:inherit}.container{width:min(1120px,calc(100% - 38px));margin:0 auto}.topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(245,247,250,.86);border-bottom:1px solid rgba(20,62,107,.08)}.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--azul)}.brand img{width:46px;height:46px;object-fit:contain}.navlinks{display:flex;gap:24px;align-items:center;font-size:.94rem;color:#415066}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--verde);color:white;text-decoration:none;padding:15px 24px;border-radius:999px;font-weight:800;box-shadow:0 12px 28px rgba(19,111,99,.22);transition:.2s ease;border:0;cursor:pointer}.btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(19,111,99,.28)}.btn.secondary{background:var(--azul);box-shadow:0 12px 28px rgba(20,62,107,.22)}.hero{padding:78px 0 56px;background:radial-gradient(circle at 88% 5%,rgba(19,111,99,.16),transparent 31%),radial-gradient(circle at 8% 12%,rgba(20,62,107,.14),transparent 35%)}.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:48px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 13px;background:rgba(19,111,99,.1);color:var(--verde);border:1px solid rgba(19,111,99,.18);border-radius:999px;font-weight:800;font-size:.9rem;margin-bottom:18px}.hero-sub{font-size:1.25rem;color:#34445c;max-width:650px}.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:28px 0 18px}.microcopy{color:#68758a;font-size:.92rem}.mockup{background:var(--branco);border-radius:32px;padding:18px;box-shadow:var(--sombra);border:1px solid rgba(20,62,107,.08)}.screen{border-radius:22px;background:linear-gradient(145deg,#fff,#edf5f3);overflow:hidden;border:1px solid rgba(20,62,107,.1)}.screen-top{background:var(--azul);height:48px;display:flex;align-items:center;gap:8px;padding:0 16px}.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.65)}.screen-body{padding:22px}.dashboard-title{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.dashboard-title strong{color:var(--azul);font-family:Poppins,sans-serif;font-size:1.15rem}.tag{background:rgba(19,111,99,.11);color:var(--verde);padding:7px 10px;border-radius:999px;font-weight:800;font-size:.78rem}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.metric{background:#fff;border-radius:16px;padding:14px;border:1px solid rgba(20,62,107,.08)}.metric span{display:block;color:#6b7688;font-size:.75rem;margin-bottom:6px}.metric b{color:var(--azul);font-size:1.05rem}.bars{display:grid;gap:10px;background:#fff;padding:16px;border-radius:18px;border:1px solid rgba(20,62,107,.08)}.bar{height:12px;border-radius:999px;background:#e7ebf0;overflow:hidden}.bar i{display:block;height:100%;background:var(--verde);border-radius:999px}section{padding:78px 0}.section-head{max-width:760px;margin-bottom:34px}.section-head.center{text-align:center;margin:0 auto 38px}.muted{color:#526176}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start}.card{background:var(--branco);padding:28px;border-radius:var(--radius);box-shadow:0 10px 34px rgba(20,62,107,.08);border:1px solid rgba(20,62,107,.08)}.icon{width:42px;height:42px;border-radius:14px;background:rgba(19,111,99,.11);display:flex;align-items:center;justify-content:center;color:var(--verde);font-weight:900;margin-bottom:16px}.dark{background:var(--azul);color:#fff}.dark h2,.dark h3{color:#fff}.dark .muted{color:rgba(255,255,255,.78)}.dark .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);box-shadow:none;color:#fff}.steps{counter-reset:step;display:grid;gap:16px}.step{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start}.step:before{counter-increment:step;content:counter(step);width:48px;height:48px;border-radius:50%;background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}.video-box{aspect-ratio:16/9;border-radius:28px;background:linear-gradient(135deg,var(--azul),#0d2745);display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:28px;box-shadow:var(--sombra);position:relative;overflow:hidden}.play{width:76px;height:76px;border-radius:50%;background:var(--verde);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:2rem}.offer{background:#fff;border-radius:34px;padding:38px;border:2px solid rgba(19,111,99,.18);box-shadow:var(--sombra)}.price{font-family:Poppins,sans-serif;color:var(--azul);font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;margin:10px 0}.list{list-style:none;padding:0;margin:0;display:grid;gap:12px}.list li{padding-left:32px;position:relative}.list li:before{content:'✓';position:absolute;left:0;top:0;color:var(--verde);font-weight:900}.faq{display:grid;gap:14px}details{background:#fff;border:1px solid rgba(20,62,107,.09);border-radius:18px;padding:18px 20px}summary{cursor:pointer;font-weight:800;color:var(--azul)}details p{margin:12px 0 0;color:#526176}.footer{padding:40px 0;background:#102f52;color:rgba(255,255,255,.75);font-size:.92rem}.footer img{width:54px;height:54px;object-fit:contain}.footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center}.notice{font-size:.86rem;color:#6e7b8f;margin-top:16px}@media(max-width:880px){.hero-grid,.grid-2,.grid-3{grid-template-columns:1fr}.navlinks{display:none}.hero{padding-top:46px}.cards{grid-template-columns:1fr}.footer-grid{align-items:flex-start;flex-direction:column}}</style>-->
+</head>
+<body>
+
+<header class="topbar">
+	<div class="container nav">
+		<div class="brand">
+			<img src="imagens/logo-metodo-360.png" alt="Método 360 Financeiro">
+			<span>Método 360 Financeiro</span>
+		</div>
+			<nav class="navlinks">
+				<a href="#video">Como funciona</a>
+				<a href="#recebe">O que recebe</a>
+				<a href="#oferta">Oferta</a>
+			</nav>
+			<a class="btn" href="#oferta">Quero ter controle do meu dinheiro</a>
+	</div>
+</header>
+
+
+  <main>
+    <section class="hero">
+		<div class="container hero-grid">
+			<div>
+				<div class="eyebrow">Sistema de gestão financeira pessoal • versão 2026</div>
+				<h1>Se você não sabe pra onde seu dinheiro vai, esse sistema resolve isso</h1>
+				<p class="hero-sub">A <strong>Planilha Mestre 2026</strong> é o sistema de entrada do Método 360 Financeiro: uma ferramenta pronta, guiada e simples para organizar entradas, gastos, metas e planejamento em um só lugar.</p>
+				<div class="cta-row">
+					<a class="btn" href="#oferta">Quero controlar minhas finanças</a>
+					<a class="btn secondary" href="#video">Ver como funciona</a>
+				</div>
+				<p class="microcopy">Sem complicação. Sem fórmulas para montar. Você recebe o sistema pronto e as aulas para usar com segurança.</p>
+			</div>
+			
+			<div class="mockup">
+				<div class="screen">
+					<div class="screen-top">
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+					</div>
+					<div class="screen-body">
+						<div class="dashboard-title"><strong>Painel financeiro 2026</strong>
+							<span class="tag">Visão 360º</span>
+						</div>
+						<div class="cards">
+							<div class="metric">
+								<span>Entradas</span><b>R$ 5.420</b>
+							</div>
+							<div class="metric">
+								<span>Gastos</span><b>R$ 3.870</b>
+							</div>
+							<div class="metric">
+								<span>Sobra</span><b>R$ 1.550</b></div>
+						</div>
+						<div class="bars">
+								<div>
+									<strong>Moradia</strong>
+									<div class="bar">
+										<i style="width:72%"></i>
+									</div>
+								</div>
+								<div>
+									<strong>Cartão</strong>
+										<div class="bar">
+											<i style="width:53%"></i>
+										</div>
+								</div>
+								<div>
+									<strong>Metas</strong>
+									<div class="bar">
+										<i style="width:38%"></i>
+									</div>
+								</div>
+								<div>
+									<strong>Reserva</strong>
+									<div class="bar">
+										<i style="width:64%"></i>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+    <section>
+		<div class="container grid-2">
+			<div class="section-head">
+				<h2>O problema não é só ganhar mais. É não enxergar o caminho do dinheiro.</h2>
+				<p class="muted">Muita gente trabalha, recebe, paga contas, passa o cartão e chega no fim do mês sem saber exatamente o que aconteceu. Essa falta de clareza gera ansiedade, decisões ruins e a sensação de que o dinheiro simplesmente desaparece.</p>
+			</div>
+			<div class="card">
+			<h3>Se hoje você sente isso, o sistema foi feito para você:</h3>
+				<ul class="list">
+					<li>Você não sabe exatamente quanto gasta por categoria.</li>
+					<li>Você se perde entre cartão, contas, Pix e pequenos gastos.</li>
+					<li>Você tenta se organizar, mas abandona depois de poucos dias.</li>
+					<li>Você quer planejar o mês, mas não sabe por onde começar.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+
+<section class="dark" id="video">
+  <div class="container grid-2">
+
+    <div>
+      <h2>Veja como funciona por dentro</h2>
+
+      <p class="muted">
+        Em poucos minutos, você vai entender como esse sistema te ajuda a organizar seu dinheiro, visualizar seus gastos e ter mais controle no dia a dia.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div>
+            <h3>Entenda para onde seu dinheiro vai</h3>
+            <p class="muted">
+              Visualize seus ganhos e gastos de forma simples, sem depender de memória ou anotações soltas.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Tenha clareza do seu mês</h3>
+            <p class="muted">
+              Veja exatamente quanto entra, quanto sai e onde você pode melhorar.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Comece a ter controle de verdade</h3>
+            <p class="muted">
+              Com tudo organizado em um só lugar, você toma decisões mais conscientes e sai do modo automático.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="video-box">
+  <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:24px;">
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kZS5QZVB0qA?si=wpNgBO1sEumcaKV0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  </div>
+</div>
+
+  </div>
+</section>
+
+    <section id="como-funciona">
+		<div class="container">
+			<div class="section-head center">
+				<h2>Como a Planilha Mestre 2026 te dá controle financeiro real</h2>
+				<p class="muted">Ela não é vendida como uma “planilha comum”. Ela é um sistema de gestão financeira pessoal, pronto para você preencher, acompanhar e tomar decisões melhores.</p>
+			</div>
+			<div class="grid-3">
+				<div class="card">
+					<div class="icon">1</div>
+					<h3>Você registra</h3>
+					<p>Entradas, gastos, contas, cartão, metas e movimentações financeiras em uma estrutura já organizada.</p>
+				</div>
+				<div class="card">
+				<div class="icon">2</div>
+					<h3>O sistema organiza</h3>
+					<p>As informações se conectam em painéis, resumos e visões mensais para você parar de depender da memória.</p>
+				</div>
+				<div class="card">
+					<div class="icon">3</div>
+					<h3>Você decide melhor</h3>
+					<p>Com clareza, fica mais fácil cortar excessos, planejar o mês e construir uma vida financeira mais segura.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+    <section class="dark">
+		<div class="container grid-2">
+			<div><h2>O Método 360 Financeiro é maior que esse produto.</h2>
+				<p class="muted">A Planilha Mestre 2026 é apenas a porta de entrada. O Método 360 Financeiro foi pensado para levar você do caos financeiro para uma visão completa de controle, planejamento, organização e crescimento.</p>
+				<p class="muted">Ele pode ser um divisor de águas — e, para muita gente, um verdadeiro salvador da vida financeira. Mas neste momento você está adquirindo o sistema que começa tudo: o controle das suas finanças.</p>
+			</div>
+			<div class="card">
+				<h3>Primeiro passo: controle total</h3>
+				<p class="muted">Antes de investir melhor, planejar grandes metas ou mudar de patamar, você precisa saber exatamente quanto entra, quanto sai e onde o dinheiro está vazando.</p>
+				<ul class="list">
+					<li>Controle financeiro</li>
+					<li>Planejamento mensal</li>
+					<li>Clareza sobre gastos</li>
+					<li>Base para avançar no Método 360</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+
+    <section id="recebe">
+		<div class="container">
+			<div class="section-head center">
+				<h2>O que você recebe ao acessar</h2>
+				<p class="muted">Um sistema pronto, acompanhado de orientação para você não ficar perdido depois da compra.</p>
+			</div>
+			<div class="grid-3">
+				<div class="card">
+					<div class="icon">✓</div>
+					<h3>Planilha Mestre 2026</h3>
+					<p>Sistema completo de gestão financeira pessoal para acompanhar seu ano de forma organizada.</p>
+				</div>
+				<div class="card">
+					<div class="icon">▶</div>
+					<h3>Aulas gravadas</h3>
+					<p>Conteúdos explicando como usar cada parte do sistema, mesmo que você não tenha familiaridade com ferramentas financeiras.</p>
+				</div>
+				<div class="card">
+					<div class="icon">↻</div>
+					<h3>Atualizações</h3>
+					<p>Ajustes e melhorias futuras da versão 2026, conforme evolução do Método 360 Financeiro.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+    <section>
+		<div class="container grid-2">
+			<div class="section-head">
+				<h2>Não precisa ser bom com tecnologia. Precisa apenas começar.</h2>
+				<p class="muted">O bloqueio com ferramentas financeiras normalmente vem do medo de ser difícil. Por isso, a experiência precisa ser simples: você recebe o sistema pronto, segue as aulas e preenche o que for necessário.</p>
+			</div>
+			<div class="card">
+				<ul class="list">
+					<li>Você não precisa criar nada do zero.</li>
+					<li>Você não precisa montar fórmulas.</li>
+					<li>Você não precisa entender termos técnicos.</li>
+					<li>Você só precisa alimentar o sistema e acompanhar sua evolução.</li>
+				</ul>
+				<p class="notice">Observação transparente: o sistema funciona em ambiente de planilhas, como Excel ou Google Planilhas, mas foi estruturado para que você use sem precisar dominar essas ferramentas.</p>
+			</div>
+		</div>
+	</section>
+
+<section id="depoimentos" class="dark">
+  <div class="container">
+
+    <div class="section-head center">
+      <div class="eyebrow-dark">Resultados reais</div>
+
+      <h2>Antes de confiar em uma promessa, veja o que alunos já falaram.</h2>
+
+      <p class="muted">
+        A Planilha Mestre não é só uma ferramenta bonita. Ela ajuda pessoas reais a enxergarem o próprio dinheiro com mais clareza, organização e controle.
+      </p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+       <div class="icon icon-dark">✓</div>
+        <h3>Clareza na prática</h3>
+        <p class="muted">
+          Quem começa a usar passa a entender melhor para onde o dinheiro está indo e o que precisa mudar.
+        </p>
+        <img src="imagens/depo1.png" alt="Depoimento de aluno sobre a Planilha Mestre" style="width:100%; border-radius:18px; margin-top:18px;">
+      </div>
+
+      <div class="card">
+        <div class="icon icon-dark">✓</div>
+        <h3>Mais controle no mês</h3>
+        <p class="muted">
+          O sistema ajuda a organizar receitas, gastos e decisões financeiras sem depender de memória ou anotações soltas.
+        </p>
+        <img src="imagens/depo2.png" alt="Depoimento de aluno sobre organização financeira" style="width:100%; border-radius:18px; margin-top:18px;">
+      </div>
+
+      <div class="card">
+        <div class="icon icon-dark">✓</div>
+        <h3>Confiança para continuar</h3>
+        <p class="muted">
+          O primeiro passo é simples: preencher, visualizar e perceber que dá para retomar o controle financeiro.
+        </p>
+        <img src="imagens/depo3.png" alt="Depoimento de aluno sobre controle financeiro" style="width:100%; border-radius:18px; margin-top:18px;">
+      </div>
+
+    </div>
+	<p class="muted" style="text-align:center; margin-top:20px;">
+  Esse padrão se repete: quando a pessoa enxerga o dinheiro, ela começa a controlar.
+</p>
+
+    <div class="section-head center" style="margin-top:42px;">
+      <h3 style="color:white;">Você não precisa acreditar só no que está escrito aqui.</h3>
+      <p class="muted">
+        Veja os prints, entenda o resultado e decida se também está na hora de parar de adivinhar para onde seu dinheiro vai.
+      </p>
+	  
+
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn" href="#oferta">Quero organizar minhas finanças</a>
+      </div>
+    </div>
+
+  </div>
+</section>  
+
+    <section id="oferta">
+  <div class="container grid-2">
+
+    <div>
+      <h2>Comece hoje a controlar sua vida financeira em 2026.</h2>
+
+      <p class="muted">
+        Você pode continuar tentando organizar tudo de cabeça, olhando extratos soltos e se perguntando para onde o dinheiro foi.
+        <br><br>
+        Ou pode começar com um sistema simples, já pronto, que te mostra exatamente como seu dinheiro funciona.
+      </p>
+
+      <div class="card">
+        <h3>O que você ganha com isso</h3>
+
+        <p class="muted">
+          ✔ Clareza total sobre para onde seu dinheiro está indo
+        </p>
+
+        <p class="muted">
+          ✔ Controle real do seu mês, sem depender de memória ou anotações soltas
+        </p>
+
+        <p class="muted">
+          ✔ Um sistema simples — você não precisa saber Excel
+        </p>
+
+        <p class="muted">
+          ✔ Organização completa em menos de 1 hora
+        </p>
+
+        <p class="muted">
+          ✔ Base estruturada para evoluir sua vida financeira de verdade
+        </p>
+
+        <p class="muted">
+          ✔ O primeiro passo dentro do Método 360 Financeiro — um sistema mais completo que pode te levar para outro nível de organização e planejamento
+        </p>
+      </div>
+    </div>
+
+    <div class="offer">
+      <div class="eyebrow">Oferta promocional</div>
+
+      <h3>Planilha Mestre 2026</h3>
+
+      <p>
+        Sistema de gestão financeira pessoal + aulas gravadas + atualizações da versão 2026.
+      </p>
+
+      <p class="muted" style="text-decoration: line-through; margin-top:10px;">
+        De R$ 147,90
+      </p>
+
+      <div class="price">R$ 39,90</div>
+<p class="muted">
+  Essa condição é válida apenas para a versão atual. O valor pode mudar a qualquer momento.
+</p>
+      <ul class="list">
+        <li>Acesso imediato após a compra</li>
+        <li>Garantia de 7 dias</li>
+        <li>Produto digital</li>
+        <li>Base de entrada para o Método 360</li>
+      </ul>
+	  <br>
+<p class="muted" style="font-weight:600;">
+  Um único pagamento para ter controle do seu dinheiro durante todo o ano de 2026
+</p>
+      <div class="cta-row">
+        <a class="btn" href="https://pay.kiwify.com.br/lVtO9lx">
+          Quero ter controle do meu dinheiro
+        </a>
+      </div>
+
+      <p class="microcopy">
+        Pagamento processado em ambiente seguro.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+    <section>
+		<div class="container">
+			<div class="section-head center">
+				<h2>Perguntas frequentes</h2>
+			</div>
+			<div class="faq">
+				<details>
+					<summary>Eu preciso entender de Excel?</summary>
+					<p>Não. A proposta é que você use o sistema pronto, seguindo as aulas. A ferramenta funciona em ambiente de planilhas, mas você não precisa montar estrutura, fórmulas ou painéis do zero.</p>
+				</details>
+				<details>
+					<summary>O que exatamente eu estou comprando?</summary>
+					<p>Você está comprando a Planilha Mestre 2026, um sistema de gestão financeira pessoal do Método 360 Financeiro, com aulas gravadas e estrutura pronta para controlar e planejar suas finanças.</p>
+				</details>
+				<details>
+					<summary>Funciona no celular?</summary>
+					<p>Sim, você pode acessar por celular ou computador. Para uma experiência melhor de preenchimento e visão geral, o computador costuma ser mais confortável.</p>
+				</details>
+				<details>
+					<summary>Esse é o Método 360 completo?</summary>
+					<p>Não. Este é o produto de entrada: o sistema de controle financeiro. O Método 360 Financeiro é maior e poderá incluir outros produtos e etapas de planejamento, organização e evolução financeira.</p>
+				</details>
+				<details>
+					<summary>Tem garantia?</summary>
+					<p>Sim. Você tem 7 dias de garantia, conforme regras aplicáveis a produtos digitais.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+
+    <section class="dark">
+		<div class="container section-head center">
+			<h2>O dinheiro não precisa continuar sendo uma dúvida.</h2>
+			<p class="muted">Comece pelo controle. Depois, avance para o planejamento. A Planilha Mestre 2026 é o primeiro passo para você enxergar sua vida financeira em 360 graus.</p>
+			<div class="cta-row" style="justify-content:center">
+				<a class="btn" href="#oferta">Quero começar agora</a>
+			</div>
+		</div>
+	</section>
+
+
+  </main>
+  <footer class="footer">
+	<div class="container footer-grid">
+		<div class="brand" style="color:white">
+			<img src="imagens/logo-metodo-360.png" alt="Método 360 Financeiro">
+			<span>Método 360 Financeiro</span>
+		</div>
+		
+		<div>© Método 360 Financeiro — Todos os direitos reservados <br>
+			m360financeiro@gmail.com | @metodo360financeiro
+		</div>
+	</div>
+	</footer>
+</body>
+</html>
